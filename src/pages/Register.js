@@ -1,6 +1,9 @@
 import RegisterForm from "../components/registerForm/RegisterForm";
 
 function Register() {
+
+  document.body.className ="bg-gradient-secondary";
+
   return (
     <div className="container">
       <div className="card o-hidden border-0 shadow-lg my-5">
