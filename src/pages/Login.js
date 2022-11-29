@@ -1,6 +1,9 @@
 import LoginForm from "../components/loginForm/LoginForm";
 
 function Login() {
+  
+  document.body.className ="bg-gradient-secondary";
+
 
   document.body.className ="bg-gradient-secondary";
 

@@ -1,15 +1,18 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import "./bootstrap/css/sb-admin-2.css";
+
 import Layout from "./components/layout/Layout";
+
+import RequireAuth from "./components/requireAuth/RequireAuth";
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
+    <div className="App">
       <link
         href="https://use.fontawesome.com/releases/v5.0.1/css/all.css"
         rel="stylesheet"
@@ -19,14 +22,17 @@ function App() {
         rel="stylesheet"
       />
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/index" element={<Layout />} />
-      </Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
+          <Route element={<RequireAuth />}>
+            <Route path="/index" element={<Dashboard />} />
+          </Route>
+        </Route>
+      </Routes>
     </div>
-    </Router>
   );
 }
 

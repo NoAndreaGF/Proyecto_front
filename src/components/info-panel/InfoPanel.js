@@ -1,3 +1,5 @@
+import Table from "../table/Table";
+
 function InfoPanel({title, data}) {
     return (
         <div className="col-xl-6 col-lg-7">
@@ -7,10 +9,11 @@ function InfoPanel({title, data}) {
                 {title}
               </h6>
               <div className="dropdown no-arrow">
-                {data}
               </div>
             </div>
-            <div className="card-body"></div>
+            <div className="card-body">
+              <Table data={data} />
+            </div>
           </div>
         </div>
     );

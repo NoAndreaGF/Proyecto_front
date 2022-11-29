@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import AuthContext from "../../context/AuthProvider";
 
 function Topbar() {
+  const { setAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [dropMenu, setDropMenu] = useState(false);
 
   const dropMenuClick = () => {
     dropMenu ? setDropMenu(false) : setDropMenu(true);
   };
+
+  const logout = async () => {
+    setAuth({});
+    navigate("/login");
+  }
 
   return (
     <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -40,7 +49,7 @@ function Topbar() {
               className="dropdown-item"
               data-toggle="modal"
               data-target="#logoutModal"
-              href="/"
+              onClick={logout}
             >
               <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
               Cerrar sesión

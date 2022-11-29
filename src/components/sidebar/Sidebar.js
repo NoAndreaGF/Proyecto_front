@@ -10,7 +10,15 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { useNavigate, Link, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../../context/AuthProvider";
+
 function Sidebar() {
+  const { auth } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/index";
 
   const [menuCollapse, setMenuCollapse] = useState(false);
 
@@ -25,12 +33,12 @@ function Sidebar() {
     >
       <Brand />
 
-      <Item name="Dashboard" icon={faHome} />
-      <Item name="Inventario" icon={faArchive} />
-      <Item name="Venta" icon={faShoppingCart} />
-      <Item name="Clientes" icon={faUsers} />
-      <Item name="Productos" icon={faBarcode} />
-      <Item name="Usuario" icon={faUser} />
+      <Item name="Dashboard" icon={faHome}></Item><Link to="/index"/>
+      <Item name="Inventario" icon={faArchive} /><Link to="/index"/>
+      <Item name="Venta" icon={faShoppingCart} /><Link to="/index"/>
+      <Item name="Clientes" icon={faUsers} /><Link to="/index"/>
+      <Item name="Productos" icon={faBarcode} /><Link to="/index"/>
+      <Item name="Usuario" icon={faUser} /><Link to="/index"/>
 
       <div className="text-center d-none d-md-inline">
         <button className="rounded-circle border-0" id="sidebarToggle" onClick={menuIconClick}></button>
