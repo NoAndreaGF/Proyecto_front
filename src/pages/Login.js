@@ -4,9 +4,6 @@ function Login() {
   
   document.body.className ="bg-gradient-secondary";
 
-
-  document.body.className ="bg-gradient-secondary";
-
   return (
     <div className="container">
       <div className="row justify-content-center">

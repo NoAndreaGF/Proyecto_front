@@ -3,12 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import "./RegisterForm.css";
 
+import { Link, useNavigate } from "react-router-dom";
 import UserService from "../../services/UserService";
 
 const USER_REGEX = /^[a-zA-Z0-9]{3,23}$$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 function RegisterForm() {
+  const navigate = useNavigate();
+
   const userRef = useRef();
   const errRef = useRef();
 
@@ -27,15 +30,10 @@ function RegisterForm() {
   const [errMsg, setErrMsg] = useState("");
 
   useEffect(() => {
-    console.log(user);
-
     setValidName(USER_REGEX.test(user));
   }, [user]);
 
   useEffect(() => {
-    console.log(pwd);
-    console.log(matchPwd);
-
     setValidPwd(PWD_REGEX.test(pwd));
     setValidMatch(pwd === matchPwd);
   }, [pwd, matchPwd]);
@@ -62,10 +60,15 @@ function RegisterForm() {
     UserService.create(data)
       .then((response) => {
         if (!response?.data?.errors) {
-          //clear state and controlled inputs
-          setUser("");
-          setPwd("");
-          setMatchPwd("");
+          if (response.data !== "406") {
+            setUser("");
+            setPwd("");
+            setMatchPwd("");
+            navigate("/login", { replace: true });
+          }
+          else if (response.data === "406") {
+            setErrMsg("Usuario ocupado.");
+          }
         } else {
           setErrMsg("Registro fallido");
         }
@@ -73,8 +76,6 @@ function RegisterForm() {
       .catch((e) => {
         if (!e?.response) {
           setErrMsg("Fallo en el Servidor");
-        } else if (e.response?.status === 409) {
-          setErrMsg("Usuario ocupado");
         } else {
           setErrMsg("Registro fallido");
         }
@@ -186,9 +187,9 @@ function RegisterForm() {
       </form>
       <hr />
       <div className="text-center">
-        <a className="small" href="login.html">
-          ¿Ya tienes una cuenta? Inicia sesión!
-        </a>
+        <Link className="small" to="/login">
+          ¿Ya tienes una cuenta? ¡Inicia sesión!
+        </Link>
       </div>
     </div>
   );

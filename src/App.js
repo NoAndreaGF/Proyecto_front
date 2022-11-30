@@ -3,12 +3,14 @@ import { Routes, Route } from "react-router-dom";
 import "./bootstrap/css/sb-admin-2.css";
 
 import Layout from "./components/layout/Layout";
-
 import RequireAuth from "./components/requireAuth/RequireAuth";
+import Static from "./components/static/Static";
+
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Inventory from "./pages/Inventory";
 
 function App() {
   return (
@@ -28,7 +30,10 @@ function App() {
           <Route path="/register" element={<Register />} />
 
           <Route element={<RequireAuth />}>
-            <Route path="/index" element={<Dashboard />} />
+            <Route element={<Static />}>
+              <Route path="/index" element={<Dashboard />} />
+              <Route path="/inventario" element={<Inventory />} />
+            </Route>
           </Route>
         </Route>
       </Routes>

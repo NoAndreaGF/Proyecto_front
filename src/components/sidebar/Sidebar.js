@@ -10,15 +10,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { useNavigate, Link, useLocation } from "react-router-dom";
-import { useContext } from "react";
-import AuthContext from "../../context/AuthProvider";
-
 function Sidebar() {
-  const { auth } = useContext(AuthContext);
-  const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/index";
 
   const [menuCollapse, setMenuCollapse] = useState(false);
 
@@ -33,12 +25,12 @@ function Sidebar() {
     >
       <Brand />
 
-      <Item name="Dashboard" icon={faHome}></Item><Link to="/index"/>
-      <Item name="Inventario" icon={faArchive} /><Link to="/index"/>
-      <Item name="Venta" icon={faShoppingCart} /><Link to="/index"/>
-      <Item name="Clientes" icon={faUsers} /><Link to="/index"/>
-      <Item name="Productos" icon={faBarcode} /><Link to="/index"/>
-      <Item name="Usuario" icon={faUser} /><Link to="/index"/>
+      <Item name="Dashboard" icon={faHome} link="/index"></Item>
+      <Item name="Inventario" icon={faArchive} link="/inventario" />
+      <Item name="Venta" icon={faShoppingCart} link="/ventas" />
+      <Item name="Clientes" icon={faUsers} link="/clientes" />
+      <Item name="Productos" icon={faBarcode} link="/productos" />
+      <Item name="Usuario" icon={faUser} link="/usuario" />
 
       <div className="text-center d-none d-md-inline">
         <button className="rounded-circle border-0" id="sidebarToggle" onClick={menuIconClick}></button>
