@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 
 import OrderService from "../services/OrderService";
 import TablePage from "../components/table-pages/table-pages";
-import ButtonAdd from "../components/buttons/button-add";
-import ButtonModify from "../components/buttons/button-modify";
-import ButtonDelete from "../components/buttons/button-delete";
 import SalesTitle from "../components/sales-title/sales-title";
+import ButtonBig from "../components/buttons/button-big";
+import { faPlus,faEdit,faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function Sales() {
 
@@ -33,9 +32,9 @@ function Sales() {
             <div className="row-pages col-xl">
                 <TablePage/>
                 <div className="col">
-                    <ButtonAdd />
-                    <ButtonModify />
-                    <ButtonDelete />
+                    <ButtonBig icon={faPlus}  />
+                    <ButtonBig icon={faEdit}  />
+                    <ButtonBig icon={faTrash}  />
                 </div>
             </div>
         </div>

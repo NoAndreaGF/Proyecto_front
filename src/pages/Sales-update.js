@@ -4,8 +4,8 @@ import OrderService from "../services/OrderService";
 import FormSalesUpdate from "../components/form-sales/form-sales-update";
 import ButtonBack from "../components/buttons/button-back";
 import SalesTitle from "../components/sales-title/sales-title";
-import ButtonModify from "../components/buttons/button-modify";
-import ButtonDelete from "../components/buttons/button-delete";
+import ButtonBig from "../components/buttons/button-big";
+import {faEdit,faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function SalesUpdate() {
 
@@ -28,7 +28,7 @@ function SalesUpdate() {
     return (
         <div className="container-fluid">
             <SalesTitle data={sales} />
-            
+
             <div className="form-row">
                 <ButtonBack />
             </div>
@@ -36,8 +36,8 @@ function SalesUpdate() {
             <div className="row-pages col-xl">
                 <FormSalesUpdate />
                 <div className="col">
-                    <ButtonModify/>
-                    <ButtonDelete />
+                    <ButtonBig icon={faEdit} />
+                    <ButtonBig icon={faTrash} />
                 </div>
             </div>
         </div>

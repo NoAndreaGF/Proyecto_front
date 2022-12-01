@@ -1,5 +1,8 @@
+
+import { faPlus,faCalendar } from "@fortawesome/free-solid-svg-icons";
 import ButtonAddProducts from "../buttons/button-add-products";
-import ButtonDate from "../buttons/button-date";
+import ButtonSmall from "../buttons/button-small";
+
 
 function FormSalesUpdate() {
     return (
@@ -23,7 +26,7 @@ function FormSalesUpdate() {
                             <input type="text" readonly="readonly" className="form-control bg-white border-1 small" placeholder="Fecha de entrega" aria-label="Search" aria-describedby="basic-addon2" />
                         </div>
 
-                        <ButtonDate />
+                        <ButtonSmall icon={faCalendar}  />
 
                         <div className="row col-xl-4 col-lg-2 mr-5">
                             <select type="text" readonly="readonly" className="form-control bg-white border-1 small">
