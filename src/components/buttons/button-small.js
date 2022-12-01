@@ -1,11 +1,12 @@
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-function ButtonDate({link}) {
+function ButtonSmall({icon,link}) {
     return (
         <div className="col">
             <div className="row">
                 <div className="col" >
                     <button class="btn btn-date btn-primary" type="button">
-                        <i class="fas fa-calendar fa-md"></i>
+                    <FontAwesomeIcon icon={icon} className="fa-1x text-white" />
                     </button>
                 </div>
             </div>
@@ -13,4 +14,4 @@ function ButtonDate({link}) {
     );
 }
 
-export default ButtonDate;
+export default ButtonSmall;

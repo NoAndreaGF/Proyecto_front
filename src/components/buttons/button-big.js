@@ -1,11 +1,12 @@
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-function ButtonDelete({link}) {
+function ButtonBig({icon,link}) {
     return (
         <div className="col col-buttons">
-              <div className="row mb-4">
+            <div className="row  mb-4">
                 <div className="col-xl-12" >
                     <button class="btn btn-pages btn-primary" type="button">
-                        <i class="fas fa-trash fa-md"></i>
+                    <FontAwesomeIcon icon={icon} className="fa-2x text-white" />
                     </button>
                 </div>
             </div>
@@ -13,4 +14,4 @@ function ButtonDelete({link}) {
     );
 }
 
-export default ButtonDelete;
+export default ButtonBig;

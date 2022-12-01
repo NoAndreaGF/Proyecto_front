@@ -1,6 +1,5 @@
-import ButtonAddProducts from "../buttons/button-add-products";
 import SearchBarAdd from "../search-bar/search-bar-add";
-import Table from "../table/Table";
+import ButtonAddProducts from "../buttons/button-add-products";
 
 function FormSalesAdd() {
     return (

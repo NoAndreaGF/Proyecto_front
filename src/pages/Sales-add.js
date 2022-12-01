@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 
 import OrderService from "../services/OrderService";
 import FormSalesAdd from "../components/form-sales/form-sales-add";
-import ButtonAdd from "../components/buttons/button-add";
+import ButtonBig from "../components/buttons/button-big";
+import { faPlus,faCalendar } from "@fortawesome/free-solid-svg-icons";
 import ButtonBack from "../components/buttons/button-back";
 import SalesTitle from "../components/sales-title/sales-title";
 
@@ -35,7 +36,7 @@ function SalesAdd() {
             <div className="row-pages col-xl">
                 <FormSalesAdd />
                 <div className="col">
-                    <ButtonAdd />
+                    <ButtonBig icon={faPlus} />
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 
-import ButtonProduct from "../buttons/button-product";
 import SearchBar from "../search-bar/search-bar";
-
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import ButtonSmall from "../buttons/button-small";
 
 function FormSalesAddProduct() {
     return (
@@ -46,7 +46,7 @@ function FormSalesAddProduct() {
                             <input type="text" readonly="readonly" className="form-control bg-white border-1 small" placeholder="Cantidad" aria-label="Search" aria-describedby="basic-addon2" />
                         </div>
 
-                        <ButtonProduct />
+                        <ButtonSmall icon={faShoppingCart}  />
                     </div>
 
                     <div className="row mb-4">
