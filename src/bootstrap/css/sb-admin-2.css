@@ -589,6 +589,14 @@ pre code {
   margin-left: -0.75rem;
 }
 
+.row-pages {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -0.75rem;
+  margin-left: -0.75rem;
+  margin-bottom: 90px;
+}
+
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
@@ -610,12 +618,17 @@ pre code {
   width: 100%;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
+  
 }
 
 .col {
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;
+}
+
+.col-buttons {
+  padding-left: 35px;
 }
 
 .row-cols-1 > * {
@@ -2305,6 +2318,21 @@ textarea.form-control {
   .form-inline .custom-control-label {
     margin-bottom: 0;
   }
+}
+
+.btn-pages{
+  width: 100px;
+  height: 70px;
+}
+
+.btn-add-product{
+  width: 70px;
+  height: 50px;
+}
+
+.btn-date{
+  width: 120px;
+  height: 38px;
 }
 
 .btn {
@@ -7625,6 +7653,10 @@ button.bg-dark:focus {
   max-width: 100% !important;
 }
 
+.mw-254 {
+  max-width: 254% !important;
+}
+
 .mh-100 {
   max-height: 100% !important;
 }
@@ -9599,6 +9631,9 @@ button.bg-dark:focus {
   color: #3b1510 !important;
 }
 
+.text-pages {
+  color: #f76540 !important;
+}
 a.text-primary:hover, a.text-primary:focus {
   color: #224abe !important;
 }
@@ -9665,6 +9700,10 @@ a.text-dark:hover, a.text-dark:focus {
 
 .text-muted {
   color: #858796 !important;
+}
+
+.text-black {
+  color: rgba(0, 0, 0) !important;
 }
 
 .text-black-50 {
@@ -10044,6 +10083,10 @@ a:focus {
   justify-content: center;
 }
 
+.border-left-pages {
+  border-left: 0.25rem solid #f76540 !important;
+}
+
 .border-left-primary {
   border-left: 0.25rem solid #4e73df !important;
 }
@@ -10192,7 +10235,11 @@ a:focus {
   width: 25rem;
 }
 
-.topbar .navbar-search input {
+.pages-search {
+  width: 56.3rem;
+}
+
+.topbar .navbar-search  .pages-search input {
   font-size: 0.85rem;
   height: auto;
 }
