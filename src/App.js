@@ -11,6 +11,13 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Inventory from "./pages/Inventory";
+import Sales from "./pages/Sales";
+import SalesAdd from "./pages/Sales-add";
+import SalesUpdate from "./pages/Sales-update";
+import SalesAddProduct from "./pages/Sales-add-product";
+import Products from "./pages/Products";
+import ProductsAdd from "./pages/Products-add";
+import ProductsUpdate from "./pages/Products-update";
 
 function App() {
   return (
@@ -29,12 +36,29 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          <Route element={<RequireAuth />}>
+          <Route element={<Static />}>
+              <Route path="/index" element={<Dashboard />} />
+              <Route path="/inventario" element={<Inventory />} />
+              
+            </Route>
+            <Route path="/ventas" element={<Sales />} />
+            <Route path="/ventas/agregar" element={<SalesAdd />} />
+            <Route path="/ventas/actualizar" element={<SalesUpdate />} />
+            <Route path="/ventas/agregar-producto" element={<SalesAddProduct />} />
+            <Route path="/productos" element={<Products />} />
+            <Route path="/productos/agregar" element={<ProductsAdd />} />
+            <Route path="/productos/actualizar" element={<ProductsUpdate />} />
+
+          {/* <Route element={<RequireAuth />}>
             <Route element={<Static />}>
               <Route path="/index" element={<Dashboard />} />
               <Route path="/inventario" element={<Inventory />} />
+              <Route path="/ventas" element={<Sales />} />
+              <Route path="/ventas/agregar" element={<SalesAdd />} />
+              <Route path="/ventas/actualizar" element={<SalesUpdate />} />
+              <Route path="/ventas/agregar-producto" element={<SalesAddProduct />} />
             </Route>
-          </Route>
+          </Route> */}
         </Route>
       </Routes>
     </div>

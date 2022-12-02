@@ -1,15 +1,30 @@
-function Table({data}) {
+function Table({ data }) {
   return (
-    <ul className="list-group">
-      {data?.map((sale) => (
-          <li
-            key={sale.idOrder}
-          >
-            {sale.customer.name}
-            {sale.status}
-          </li>
-        ))}
-    </ul>
+    <div
+      className="table-responsive table mt-2"
+      id="dataTable"
+      role="grid"
+      aria-describedby="dataTable_info"
+    >
+      <table className="table my-0" id="dataTable">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>          
+            {data?.map((sale) => (
+            <tr key={sale.idOrder}>
+              <td>{sale.customer.name}{" "}{sale.customer.lastName}</td>
+              <td>{sale.status}</td>
+              <td>{sale.totalAmount}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
