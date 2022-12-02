@@ -36,8 +36,8 @@ function SalesUpdate() {
             <div className="row-pages col-xl">
                 <FormSalesUpdate />
                 <div className="col">
-                    <ButtonBig icon={faEdit} />
-                    <ButtonBig icon={faTrash} />
+                    <ButtonBig icon={faEdit} link="/ventas"/>
+                    <ButtonBig icon={faTrash} link="/ventas"/>
                 </div>
             </div>
         </div>

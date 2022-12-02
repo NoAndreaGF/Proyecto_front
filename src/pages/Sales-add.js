@@ -30,13 +30,13 @@ function SalesAdd() {
             <SalesTitle data={sales} />
             
             <div className="form-row">
-                <ButtonBack />
+                <ButtonBack link="/ventas"/>
             </div>
 
             <div className="row-pages col-xl">
                 <FormSalesAdd />
                 <div className="col">
-                    <ButtonBig icon={faPlus} />
+                    <ButtonBig icon={faPlus} link="/ventas" />
                 </div>
             </div>
         </div>

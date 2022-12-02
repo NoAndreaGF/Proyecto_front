@@ -33,7 +33,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-
           <Route element={<RequireAuth />}>
             <Route element={<Static />}>
               <Route path="/index" element={<Dashboard />} />
@@ -42,6 +41,7 @@ function App() {
               <Route path="/ventas/agregar" element={<SalesAdd />} />
               <Route path="/ventas/actualizar" element={<SalesUpdate />} />
               <Route path="/ventas/agregar-producto" element={<SalesAddProduct />} />
+
             </Route>
           </Route>
         </Route>

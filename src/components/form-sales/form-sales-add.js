@@ -26,7 +26,7 @@ function FormSalesAdd() {
                             </div>
                         </div>
                         <div className="col ml-4">
-                            <ButtonAddProducts />
+                            <ButtonAddProducts link="/ventas/agregar-producto"/>
                             <h3 className="ml-3 mt-3">Total</h3>
                             <h5 className="ml-4 mt-1">$150</h5>
                         </div>

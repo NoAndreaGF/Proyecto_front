@@ -32,9 +32,9 @@ function Sales() {
             <div className="row-pages col-xl">
                 <TablePage/>
                 <div className="col">
-                    <ButtonBig icon={faPlus}  />
-                    <ButtonBig icon={faEdit}  />
-                    <ButtonBig icon={faTrash}  />
+                    <ButtonBig icon={faPlus}  link="/ventas/agregar"/>
+                    <ButtonBig icon={faEdit}  link="/ventas/actualizar"/>
+                    <ButtonBig icon={faTrash} link="/ventas"/>
                 </div>
             </div>
         </div>
