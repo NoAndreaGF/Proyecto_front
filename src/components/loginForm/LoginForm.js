@@ -34,6 +34,7 @@ function LoginForm() {
       password: pwd,
     };
 
+    // Quita el errors del back para que entre al catch
     UserService.verify(data)
       .then((response) => {
         if (!response?.data?.errors) {
@@ -42,6 +43,7 @@ function LoginForm() {
           //console.log(response?.data);
           const token = response?.data;
           setAuth({ user, pwd, token });
+          // Guardar el token en localstorage
           navigate(from, { replace: true });
         } else {
           setErrMsg("No se encontro el usuario o contraseña");

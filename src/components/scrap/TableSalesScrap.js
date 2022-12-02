@@ -1,4 +1,4 @@
-function Table({ data }) {
+function TableSalesScrap({ data }) {
   return (
     <div
       className="table-responsive table mt-2"
@@ -9,15 +9,19 @@ function Table({ data }) {
       <table className="table my-0" id="dataTable">
         <thead>
           <tr>
-            <th>Nombre</th>
+            <th>Cliente</th>
+            <th>Fecha venta</th>
+            <th>Fecha entrega</th>
             <th>Estado</th>
             <th>Total</th>
           </tr>
         </thead>
         <tbody>          
-            {data?.slice(0,3).map((sale) => (
+            {data?.slice(0,10).map((sale) => (
             <tr key={sale.idOrder}>
               <td>{sale.customer.name}{" "}{sale.customer.lastName}</td>
+              <td>{sale.orderDate}</td>
+              <td>{sale.deliveryDate}</td>
               <td>{sale.status}</td>
               <td>{sale.totalAmount}</td>
             </tr>
@@ -28,4 +32,4 @@ function Table({ data }) {
   );
 }
 
-export default Table;
+export default TableSalesScrap;

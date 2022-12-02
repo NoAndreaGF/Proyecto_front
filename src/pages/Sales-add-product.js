@@ -8,7 +8,7 @@ function SalesAddProduct() {
         <div className="container-fluid">
                    
             <div className="form-row">
-                <ButtonBack />
+                <ButtonBack link="/ventas/agregar" />
             </div>
 
             <div className="row-pages col-xl">

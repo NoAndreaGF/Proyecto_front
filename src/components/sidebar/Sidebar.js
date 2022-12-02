@@ -24,13 +24,13 @@ function Sidebar() {
       id="accordionSidebar"
     >
       <Brand />
-
-      <Item name="Dashboard" icon={faHome} link="/index"></Item>
-      <Item name="Inventario" icon={faArchive} link="/inventario" />
+      
+      <Item name="Dashboard" icon={faHome} link="/index" />
+      <Item name="Inventario" icon={faArchive} link="/" />
       <Item name="Venta" icon={faShoppingCart} link="/ventas" />
-      <Item name="Clientes" icon={faUsers} link="/clientes" />
-      <Item name="Productos" icon={faBarcode} link="/productos" />
-      <Item name="Usuario" icon={faUser} link="/usuario" />
+      <Item name="Clientes" icon={faUsers} link="/" />
+      <Item name="Productos" icon={faBarcode} link="/" />
+      <Item name="Usuario" icon={faUser} link="/" />
 
       <div className="text-center d-none d-md-inline">
         <button className="rounded-circle border-0" id="sidebarToggle" onClick={menuIconClick}></button>

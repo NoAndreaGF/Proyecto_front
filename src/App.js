@@ -2,9 +2,9 @@ import { Routes, Route } from "react-router-dom";
 
 import "./bootstrap/css/sb-admin-2.css";
 
-import Layout from "./components/layout/Layout";
+import Main from "./components/main/Main";
 import RequireAuth from "./components/requireAuth/RequireAuth";
-import Static from "./components/static/Static";
+import Layout from "./components/layout/Layout";
 
 
 import Login from "./pages/Login";
@@ -28,14 +28,14 @@ function App() {
         rel="stylesheet"
       />
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Main />}>
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
 
           <Route element={<RequireAuth />}>
-            <Route element={<Static />}>
+            <Route element={<Layout />}>
               <Route path="/index" element={<Dashboard />} />
               <Route path="/inventario" element={<Inventory />} />
               <Route path="/ventas" element={<Sales />} />

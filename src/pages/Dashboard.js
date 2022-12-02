@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import Card from "../components/card/Card";
 import InfoPanel from "../components/info-panel/InfoPanel";
+import InfoPanelScrap from "../components/scrap/InfoPanelScrap";
+
 import {
   faDollarSign,
   faSignal,
@@ -12,9 +14,11 @@ import {
 import OrderService from "../services/OrderService";
 import InService from "../services/InService";
 import OutService from "../services/OutService";
+import ProductService from "../services/ProductService";
 
 function Dashboard() {
 
+  // Usar moment back-front
   const currentDate = new Date();
   let dateSeconds = Date.parse(currentDate);
 
@@ -28,15 +32,16 @@ function Dashboard() {
 
   let sumInsOuts = 0;
 
-  const [sales, setSales] = useState();
+  const [sales, setSales] = useState(0);
   const [earnings, setEarnings] = useState([]);
   const [ins, setIns] = useState(0);
   const [outs, setOuts] = useState(0);
   const [orders, setOrders] = useState();
-
+  const [products, setProducts] = useState();
 
   useEffect(() => {
     retriveOredersSales();
+    retriveProducts();
     retriveIns();
     retriveOuts();
   }, []);
@@ -47,6 +52,16 @@ function Dashboard() {
       setSales(response.data.length);
       setOrders(response.data);
       setEarnings(response.data);
+    })
+    .catch(e => {
+      console.log(e);
+    });
+  };
+
+  const retriveProducts = () => {
+    ProductService.getAll()
+    .then(response => {
+      setProducts(response.data);
     })
     .catch(e => {
       console.log(e);
@@ -73,8 +88,9 @@ function Dashboard() {
     });
   };
 
+  // Hacer algo con la suma en otra parte porque se pone raro
   sumInsOuts = ins + outs;
-
+  // Moment
   const sumMonth = earnings.reduce((current, next) => {
     let month = new Date(next.orderDate).getMonth();
     if (month >= previusMonth && month <= currentMonth) {
@@ -97,6 +113,7 @@ function Dashboard() {
       <div className="row">
         <Card
           title="Ganancias (mensuales)"
+          // Dar formato de dinero
           cuantity={`$${sumMonth}`}
           icon={faDollarSign}
           colorBorder="border-left-primary"
@@ -125,7 +142,7 @@ function Dashboard() {
         />
       </div>
       <div className="row">
-        <InfoPanel title="Productos agregados recientemente" />
+        <InfoPanelScrap title="Productos agregados recientemente" data={products} />
         <InfoPanel title="Ultimas ventas" data={orders} />
       </div>
     </div>

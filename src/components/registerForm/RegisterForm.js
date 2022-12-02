@@ -56,7 +56,7 @@ function RegisterForm() {
       username: user,
       password: pwd,
     };
-
+    // Quitar errores en validate y enviar con status en back
     UserService.create(data)
       .then((response) => {
         if (!response?.data?.errors) {
@@ -87,6 +87,7 @@ function RegisterForm() {
     <div className="p-5">
       <p
         ref={errRef}
+        // Enviar lógica arriba
         className={errMsg ? "errmsg" : "offscreen"}
         aria-live="assertive"
       >
@@ -111,16 +112,14 @@ function RegisterForm() {
             onBlur={() => setUserFocus(false)}
           />
           <p
-            id="uidnote"
+          // Enviar lógica arriba
             className={
               userFocus && user && !validName ? "instructions" : "offscreen"
             }
           >
             <FontAwesomeIcon icon={faInfoCircle} />
             4 a 24 caracteres.
-            <br />
             Debe iniciar con una letra.
-            <br />
             Se permiten letras, números, guiones.
           </p>
         </div>
@@ -138,21 +137,14 @@ function RegisterForm() {
               onBlur={() => setPwdFocus(false)}
             />
             <p
-              id="pwdnote"
+          // Enviar lógica arriba
               className={pwdFocus && !validPwd ? "instructions" : "offscreen"}
             >
               <FontAwesomeIcon icon={faInfoCircle} />
               8 a 24 caracteres.
-              <br />
               Debe incluir mayusculas y minusculas, un número y un caracter
               especial
-              <br />
-              Caracteres permitidos:{" "}
-              <span aria-label="exclamation mark">!</span>{" "}
-              <span aria-label="at symbol">@</span>{" "}
-              <span aria-label="hashtag">#</span>{" "}
-              <span aria-label="dollar sign">$</span>{" "}
-              <span aria-label="percent">%</span>
+              Caracteres permitidos:!@#$%
             </p>
           </div>
           <div className="col-sm-6">
@@ -168,7 +160,7 @@ function RegisterForm() {
               onBlur={() => setMatchFocus(false)}
             />
             <p
-              id="confirmnote"
+              // Enviar lógica arriba
               className={
                 matchFocus && !validMatch ? "instructions" : "offscreen"
               }
@@ -180,6 +172,7 @@ function RegisterForm() {
         </div>
         <button
           className="btn btn-primary btn-user btn-block"
+          // Enviar lógica arriba
           disabled={!validName || !validPwd || !validMatch ? true : false}
         >
           Registrarse

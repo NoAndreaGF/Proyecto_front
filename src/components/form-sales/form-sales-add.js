@@ -3,18 +3,18 @@ import ButtonAddProducts from "../buttons/button-add-products";
 
 function FormSalesAdd() {
     return (
-        <div class="card shadow mb-4 col-xl-9 col-lg-7">
+        <div className="card shadow mb-4 col-xl-9 col-lg-7">
             <div className="card-body">
                 <div className="col-xl-12 col-lg-7">
                     <p className="mt-4 mb-4 text-pages">Agrega la información de la venta</p>
                     <SearchBarAdd />
 
                     <div className="row col-xl-6 col-lg-2">
-                        <input type="text" readonly="readonly" class="form-control bg-white border-1 small" placeholder="Cliente" aria-label="Search" aria-describedby="basic-addon2" />
+                        <input type="text" readOnly="readonly" className="form-control bg-white border-1 small" placeholder="Cliente" aria-label="Search" aria-describedby="basic-addon2" />
                     </div>
 
                     <div className="row mb-4">
-                        <div class="card shadow mt-4 col-xl-10 col-lg-8">
+                        <div className="card shadow mt-4 col-xl-10 col-lg-8">
                             <div className="card-body">
                                 <div className="col-xl-12 col-lg-7">
                                     <div className="card shadow">

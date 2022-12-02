@@ -1,4 +1,4 @@
-function Table({ data }) {
+function TableProductDash({ data }) {
   return (
     <div
       className="table-responsive table mt-2"
@@ -10,16 +10,16 @@ function Table({ data }) {
         <thead>
           <tr>
             <th>Nombre</th>
-            <th>Estado</th>
-            <th>Total</th>
+            <th>Precio</th>
+            <th>Stock</th>
           </tr>
         </thead>
         <tbody>          
             {data?.slice(0,3).map((sale) => (
-            <tr key={sale.idOrder}>
-              <td>{sale.customer.name}{" "}{sale.customer.lastName}</td>
-              <td>{sale.status}</td>
-              <td>{sale.totalAmount}</td>
+            <tr key={sale.idProduct}>
+              <td>{sale.name}</td>
+              <td>{sale.price}</td>
+              <td>{sale.stock}</td>
             </tr>
           ))}
         </tbody>
@@ -28,4 +28,4 @@ function Table({ data }) {
   );
 }
 
-export default Table;
+export default TableProductDash;

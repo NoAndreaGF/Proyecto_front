@@ -594,7 +594,7 @@ pre code {
   flex-wrap: wrap;
   margin-right: -0.75rem;
   margin-left: -0.75rem;
-  margin-bottom: 90px;
+  margin-bottom: 3px;
 }
 
 .no-gutters {
@@ -10236,7 +10236,7 @@ a:focus {
 }
 
 .pages-search {
-  width: 56.3rem;
+  width: 90%;
 }
 
 .topbar .navbar-search  .pages-search input {
