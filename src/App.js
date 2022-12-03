@@ -33,17 +33,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-
           <Route element={<RequireAuth />}>
-            <Route element={<Layout />}>
+            <Route element={<Static />}>
               <Route path="/index" element={<Dashboard />} />
               <Route path="/inventario" element={<Inventory />} />
-              <Route path="/ventas" element={<Sales />} />
-              <Route path="/ventas/agregar" element={<SalesAdd />} />
-              <Route path="/ventas/actualizar" element={<SalesUpdate />} />
-              <Route path="/ventas/agregar-producto" element={<SalesAddProduct />} />
             </Route>
-          </Route>
+          </Route> */}
         </Route>
       </Routes>
     </div>

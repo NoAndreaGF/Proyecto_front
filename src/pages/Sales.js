@@ -42,3 +42,5 @@ function Sales() {
 }
 
 export default Sales;
+
+export default Sales;

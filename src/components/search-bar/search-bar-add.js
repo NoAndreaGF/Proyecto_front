@@ -13,5 +13,3 @@ function SearchBarAdd() {
             </form>
     );
 }
-
-export default SearchBarAdd;

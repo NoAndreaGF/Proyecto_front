@@ -67,5 +67,3 @@ function FormSalesAddProduct() {
         </div>
     );
 }
-
-export default FormSalesAddProduct;

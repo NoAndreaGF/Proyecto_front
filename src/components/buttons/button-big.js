@@ -18,3 +18,5 @@ function ButtonBig({ icon, link }) {
 }
 
 export default ButtonBig;
+
+export default ButtonBig;
