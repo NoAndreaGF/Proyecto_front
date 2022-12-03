@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-import OrderService from "../services/OrderService";
-import FormSalesUpdate from "../components/form-sales/form-sales-update";
-import ButtonBack from "../components/buttons/button-back";
-import SalesTitle from "../components/sales-title/sales-title";
-import ButtonBig from "../components/buttons/button-big";
+import OrderService from "../../services/OrderService";
+import FormSalesUpdate from "../../components/form-sales/form-sales-update";
+import ButtonBack from "../../components/buttons/button-back";
+import SalesTitle from "../../components/sales-title/sales-title";
+import ButtonBig from "../../components/buttons/button-big";
 import {faEdit,faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function SalesUpdate() {

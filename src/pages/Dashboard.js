@@ -38,6 +38,7 @@ function Dashboard() {
   const [outs, setOuts] = useState(0);
   const [orders, setOrders] = useState();
   const [products, setProducts] = useState();
+  const [sum, setSum] = useState(0);
 
   useEffect(() => {
     retriveOredersSales();
@@ -45,6 +46,10 @@ function Dashboard() {
     retriveIns();
     retriveOuts();
   }, []);
+
+  useEffect(() => {
+    sumOutsIns();
+  }, [ins, outs]);
 
   const retriveOredersSales = () => {
     OrderService.getAll()
@@ -88,8 +93,10 @@ function Dashboard() {
     });
   };
 
-  // Hacer algo con la suma en otra parte porque se pone raro
-  sumInsOuts = ins + outs;
+  const sumOutsIns = () => {
+    setSum(ins + outs);
+  };
+
   // Moment
   const sumMonth = earnings.reduce((current, next) => {
     let month = new Date(next.orderDate).getMonth();
@@ -128,7 +135,7 @@ function Dashboard() {
         />
         <Card
           title="Entradas y salidas"
-          cuantity={sumInsOuts}
+          cuantity={sum}
           icon={faClipboardList}
           colorBorder="border-left-info"
           colorText="text-info"

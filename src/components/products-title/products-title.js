@@ -1,5 +1,5 @@
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import TitlePages from "../title-pages/title-pages";
+import TitlePages from "../title-pages/TitlePages";
 import Card from "../card/Card";
 
 function ProductsTitle({data}) {

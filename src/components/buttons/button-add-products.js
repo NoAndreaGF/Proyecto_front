@@ -13,3 +13,5 @@ function ButtonAddProducts({link}) {
         </div>
     );
 }
+
+export default ButtonAddProducts

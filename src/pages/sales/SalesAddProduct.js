@@ -1,6 +1,6 @@
 
-import FormSalesAddProduct from "../components/form-sales/form-sales-add-product";
-import ButtonBack from "../components/buttons/button-back";
+import FormSalesAddProduct from "../../components/form-sales/form-sales-add-product";
+import ButtonBack from "../../components/buttons/button-back";
 
 
 function SalesAddProduct() {

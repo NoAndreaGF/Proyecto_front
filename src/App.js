@@ -6,15 +6,29 @@ import Main from "./components/main/Main";
 import RequireAuth from "./components/requireAuth/RequireAuth";
 import Layout from "./components/layout/Layout";
 
-
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
-import Inventory from "./pages/Inventory";
-import Sales from "./pages/Sales";
-import SalesAdd from "./pages/Sales-add";
-import SalesUpdate from "./pages/Sales-update";
-import SalesAddProduct from "./pages/Sales-add-product";
+
+import Inventory from "./pages/inventory/Inventory";
+import InventoryMain from "./pages/inventory/InventoryMain";
+import InventoryAdd from "./pages/inventory/InventoryAdd";
+
+import Sales from "./pages/sales/Sales";
+import SalesUpdate from "./pages/sales/SalesUpdate";
+import SalesAddProduct from "./pages/sales/SalesAddProduct";
+import SalesMain from "./pages/sales/SalesMain";
+import SalesAdd from "./pages/sales/SalesAdd";
+
+import Clients from "./pages/clients/Clients";
+import ClientsMain from "./pages/clients/ClientsMain";
+import ClientsAdd from "./pages/clients/ClientsAdd";
+
+import Products from "./pages/products/Products";
+import ProductsMain from "./pages/products/ProductsMain";
+import ProductsAdd from "./pages/products/ProductsAdd";
+
+import User from "./pages/User";
 
 function App() {
   return (
@@ -33,12 +47,29 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          <Route element={<RequireAuth />}>
-            <Route element={<Static />}>
-              <Route path="/index" element={<Dashboard />} />
-              <Route path="/inventario" element={<Inventory />} />
+          <Route element={<Layout />}>
+            <Route path="/index" element={<Dashboard />} />
+            <Route element={<Inventory />}>
+              <Route path="/inventario" element={<InventoryMain />} />
+              <Route path="/inventario-add" element={<InventoryAdd />} />
             </Route>
-          </Route> */}
+            <Route element={<Sales />}>
+              <Route path="/ventas" element={<SalesMain />} />
+              <Route path="/ventas-add" element={<SalesAdd />} />
+            </Route>
+            <Route element={<Clients />}>
+              <Route path="/clientes" element={<ClientsMain />} />
+              <Route path="/clientes-add" element={<ClientsAdd />} />
+            </Route>
+            <Route element={<Products />}>
+              <Route path="/productos" element={<ProductsMain />} />
+              <Route path="/productos-add" element={<ProductsAdd />} />
+            </Route>
+            <Route path="/usuario" element={<User />} />
+          </Route>
+          <Route element={<RequireAuth />}>
+
+          </Route>
         </Route>
       </Routes>
     </div>

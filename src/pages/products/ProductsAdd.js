@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 
-import OrderService from "../services/OrderService";
-import TablePage from "../components/table-pages/table-pages";
-import ProductsTitle from "../components/products-title/products-title";
-import ButtonBig from "../components/buttons/button-big";
+import OrderService from "../../services/OrderService";
+import TablePage from "../../components/table-pages/table-pages";
+import ButtonBig from "../../components/buttons/button-big";
 import { faPlus,faEdit,faTrash } from "@fortawesome/free-solid-svg-icons";
+import ButtonBack from "../../components/buttons/button-back";
+import ProductsTitle from "../../components/products-title/products-title";
+import FormProductsAdd from "../../components/form-products/form-products-add";
 
-function Products() {
+function ProductsAdd() {
 
     const [products, setProducts] = useState();
 
@@ -29,16 +31,18 @@ function Products() {
 
             <ProductsTitle data={products}/>
 
+            <div className="form-row">
+                <ButtonBack />
+            </div>
+
             <div className="row-pages col-xl">
-                <TablePage/>
+                <FormProductsAdd/>
                 <div className="col">
-                    <ButtonBig icon={faPlus}  />
-                    <ButtonBig icon={faEdit}  />
-                    <ButtonBig icon={faTrash}  />
+                    <ButtonBig icon={faPlus} />
                 </div>
             </div>
         </div>
     );
 }
 
-export default Products;
+export default ProductsAdd;
