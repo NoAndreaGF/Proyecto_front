@@ -47,6 +47,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
+          <Route element={<Products />}>
+            <Route path="/productos" element={<ProductsMain />} />
+            <Route path="/productos-add" element={<ProductsAdd />} />
+          </Route>
+
           <Route element={<Layout />}>
             <Route path="/index" element={<Dashboard />} />
             <Route element={<Inventory />}>
@@ -61,10 +66,7 @@ function App() {
               <Route path="/clientes" element={<ClientsMain />} />
               <Route path="/clientes-add" element={<ClientsAdd />} />
             </Route>
-            <Route element={<Products />}>
-              <Route path="/productos" element={<ProductsMain />} />
-              <Route path="/productos-add" element={<ProductsAdd />} />
-            </Route>
+
             <Route path="/usuario" element={<User />} />
           </Route>
           <Route element={<RequireAuth />}>

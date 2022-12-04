@@ -29,8 +29,6 @@ function ProductsAdd() {
     return (
         <div className="container-fluid">
 
-            <ProductsTitle data={products}/>
-
             <div className="form-row">
                 <ButtonBack />
             </div>
