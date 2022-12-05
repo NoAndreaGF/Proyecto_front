@@ -2330,6 +2330,11 @@ textarea.form-control {
   height: 50px;
 }
 
+.btn-user {
+  width: 250px;
+  height: 40px;
+}
+
 .btn-date{
   width: 120px;
   height: 38px;
@@ -7819,6 +7824,14 @@ button.bg-dark:focus {
 .ml-5,
 .mx-5 {
   margin-left: 3rem !important;
+}
+
+.ml-6 {
+  margin-left: 5rem !important;
+}
+
+.ml-7 {
+  margin-left: 6rem !important;
 }
 
 .p-0 {
