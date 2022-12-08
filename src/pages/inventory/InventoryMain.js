@@ -22,7 +22,7 @@ function InventoryMain() {
   const [ins, setIns] = useState([]);
   const [outs, setOuts] = useState([]);
   const [insOuts, setInsOuts] = useState([]);
-
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     retriveIns();
@@ -103,11 +103,47 @@ function InventoryMain() {
       });
   };
 
+  const handleSearch = (data) => {
+    InService.search(data).then((response) => {
+      if(data != "") {
+        setIns(response.data)
+      } else {
+        retriveIns();
+      }
+    });
+
+    OutService.search(data).then((response) => {
+      if(data != "") {
+        setOuts(response.data)
+      } else {
+        retriveOuts();
+      }
+    });
+
+    const array = ins.concat(outs);
+    array.sort((a, b) => {
+      let da = new Date(a.createdAt),
+      db = new Date(b.createdAt);
+      return da - db;
+    });
+
+    setInsOuts(array);
+    setSearch("");
+
+  }
+
+  const onChange = (e) => {
+     setSearch(e.target.value)
+  }
+
   return (
     <div className="row-pages col-xl">
       <div className="card shadow mb-4 col-xl-9 col-lg-7">
         <div className="card-body">
-          <SearchBar />
+          <SearchBar 
+           searchIndex = {search}
+           findByIndex = {handleSearch}
+           onChange = {onChange}/>
           <div className="col-xl-12 col-lg-7">
             <div className="card shadow mb-4">
               <div className="card-body">
