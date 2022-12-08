@@ -37,7 +37,7 @@ function Products() {
 
   const handleDelete = () => {
     if (index === 0) {
-      alert("No se a seleccionado ningun producto");
+      alert("No se ha seleccionado ningun producto");
       return;
     }
 
@@ -55,7 +55,7 @@ function Products() {
   const handleUpdate = () => {
     console.log(index);
     if (index === 0 || index === undefined) {
-      alert("No se a seleccionado ningun producto");
+      alert("No se ha seleccionado ningun producto");
       return;
     }
     ProductService.get(index)
@@ -92,7 +92,7 @@ function Products() {
           searchIndex = {search}
           findByIndex = {handleSearch}
           onChange = {onChange}
-          placeholder={"Buscar (Nombre, Marca, ID)..."}/>
+          placeholder={"Buscar (ID, Nombre, Marca)..."}/>
           <div className="col-xl-12 col-lg-7">
             <div className="card shadow mb-4">
               <div className="card-body">

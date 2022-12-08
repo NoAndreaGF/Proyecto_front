@@ -69,7 +69,7 @@ function InventoryMain() {
 
   const handleDelete = () => {
     if (index === 0) {
-      alert("No se a seleccionado ningun registro");
+      alert("No se ha seleccionado ningun registro");
       return;
     }
 
@@ -86,7 +86,7 @@ function InventoryMain() {
 
   const handleUpdate = () => {
     if (index === 0) {
-      alert("No se a seleccionado ningun cliente");
+      alert("No se ha seleccionado ningun cliente");
       return;
     }
 

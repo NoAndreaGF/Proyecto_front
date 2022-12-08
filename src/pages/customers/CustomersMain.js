@@ -37,7 +37,7 @@ function ClientsMain() {
 
   const handleDelete = () => {
     if (index === 0) {
-      alert("No se a seleccionado ningun cliente");
+      alert("No se ha seleccionado ningun cliente");
       return;
     }
 
@@ -70,7 +70,7 @@ function ClientsMain() {
 
   const handleUpdate = () => {
     if (index === 0) {
-      alert("No se a seleccionado ningun cliente");
+      alert("No se ha seleccionado ningun cliente");
       return;
     }
     
@@ -92,7 +92,7 @@ function ClientsMain() {
           searchIndex = {search}
           findByIndex = {handleSearch}
           onChange = {onChange}
-          placeholder={"Buscar (Nombre, Apellido, Teléfono, ID)..."}/>
+          placeholder={"Buscar (ID, Nombre, Apellido, Teléfono)..."}/>
           <div className="col-xl-12 col-lg-7">
             <div className="card shadow mb-4">
               <div className="card-body">
