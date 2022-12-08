@@ -15,6 +15,7 @@ function Products() {
   let index = 0;
 
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     retriveProducts();
@@ -36,7 +37,7 @@ function Products() {
 
   const handleDelete = () => {
     if (index === 0) {
-      alert("No se a seleccionado ningun producto");
+      alert("No se ha seleccionado ningun producto");
       return;
     }
 
@@ -49,13 +50,12 @@ function Products() {
     .catch((e) => {
       console.log(e);
     });
-
   };
 
   const handleUpdate = () => {
     console.log(index);
     if (index === 0 || index === undefined) {
-      alert("No se a seleccionado ningun producto");
+      alert("No se ha seleccionado ningun producto");
       return;
     }
     ProductService.get(index)
@@ -66,13 +66,33 @@ function Products() {
     .catch((e) => {
       console.log(e);
     });
+
   };
+
+  const handleSearch = (data) => {
+    ProductService.search(data).then((response) => {
+      if(data !== "") {
+        setProducts(response.data)
+      } else {
+        retriveProducts();
+      }
+      setSearch("");
+    });
+  }
+
+  const onChange = (e) => {
+     setSearch(e.target.value)
+  }
 
   return (
     <div className="row-pages col-xl">
       <div className="card shadow mb-4 col-xl-9 col-lg-7">
         <div className="card-body">
-          <SearchBar />
+          <SearchBar 
+          searchIndex = {search}
+          findByIndex = {handleSearch}
+          onChange = {onChange}
+          placeholder={"Buscar (ID, Nombre, Marca)..."}/>
           <div className="col-xl-12 col-lg-7">
             <div className="card shadow mb-4">
               <div className="card-body">

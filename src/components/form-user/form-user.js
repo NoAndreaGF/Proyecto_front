@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
-function FormUserUpdate(usuario) {
+function FormUserUpdate() {
+
     return (
         <div className="card shadow mb-4 col-xl-4 col-lg-7">
             <div className="card-body">
@@ -13,7 +14,7 @@ function FormUserUpdate(usuario) {
                         </div>
 
                         <div className="row mb-4 mt-3 ml-7">
-                            <h3 className="m-0 font-weight-bold text-black">Bienvenido, usuario1!</h3>
+                            <h3 className="m-0 font-weight-bold text-black">Bienvenido, Usuario!</h3>
                         </div>
 
                         <div className="row col-xl-7 mb-2 mt-3 ml-7">

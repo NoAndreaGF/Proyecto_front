@@ -20,12 +20,17 @@ const remove = (id) => {
   return http.delete(`/products/${id}`);
 };
 
+const search = (data) => {
+  return http.get(`/products/busqueda/${data}`);
+}
+
 const ProductService = {
   getAll,
   get,
   create,
   update,
   remove,
+  search
 };
 
 export default ProductService;

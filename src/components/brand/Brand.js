@@ -5,7 +5,7 @@ function Brand() {
   return (
     <a
       className="sidebar-brand d-flex align-items-center justify-content-center"
-      href="index.html"
+      href="/index"
     >
       <div className="sidebar-brand-icon rotate-n-15">
         <FontAwesomeIcon icon={faCubes} className="fa-2x" />

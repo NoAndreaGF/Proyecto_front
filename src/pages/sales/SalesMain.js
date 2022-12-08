@@ -10,7 +10,7 @@ import { faPlus, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function SalesMain() {
   const [orders, setOrders] = useState([]);
-  const [searchIndex, setSearchIndex] = useState("");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     retriveOredersSales();
@@ -26,25 +26,20 @@ function SalesMain() {
       });
   };
 
-  const onChangeSearchIndex = (e) => {
-    const searchIndex = e.target.value;
-    setSearchIndex(searchIndex);
-  };
+  const handleSearch = (data) => {
+    OrderService.search(data).then((response) => {
+      if(data !== "") {
+        setOrders(response.data)
+      } else {
+        retriveOredersSales();
+      }
+      setSearch("");
+    });
+  }
 
-  const refresh = () => {
-    retriveOredersSales();
-  };
-
-  const findByIndex = () => {
-    OrderService.get(searchIndex)
-      .then((response) => {
-        setOrders(response.data);
-        console.log(response.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
+  const onChange = (e) => {
+     setSearch(e.target.value)
+  }
 
 
   return (
@@ -52,9 +47,10 @@ function SalesMain() {
       <div className="card shadow mb-4 col-xl-9 col-lg-7">
         <div className="card-body">
           <SearchBar
-            searchIndex={searchIndex}
-            onChange={onChangeSearchIndex}
-            findByIndex={findByIndex}
+           searchIndex = {search}
+           findByIndex = {handleSearch}
+           onChange = {onChange}
+           placeholder = {"Buscar (ID, Estatus, Fecha: Ej. YYYY-MM-DD)..."}
           />
           <div className="col-xl-12 col-lg-7">
             <div className="card shadow mb-4">
