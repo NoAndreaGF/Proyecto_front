@@ -37,6 +37,7 @@ function LoginForm() {
     // Quita el errors del back para que entre al catch
     UserService.verify(data)
       .then((response) => {
+        console.log(response);
         if (!response?.data?.errors) {
           setUser("");
           setPwd("");
@@ -49,9 +50,10 @@ function LoginForm() {
           setErrMsg("No se encontro el usuario o contraseña");
         }
       })
-      .catch(() => {
+      .catch((errMsg) => {
         if (!errMsg?.response) {
           setErrMsg("Fallo en el Servidor");
+        } else if (errMsg.response) {
         } else {
           setErrMsg("Inicio de sesión fallido");
         }

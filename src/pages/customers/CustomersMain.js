@@ -2,28 +2,28 @@ import { useEffect, useState } from "react";
 import { faPlus, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import SearchBar from "../../components/search-bar/search-bar";
-import TableProducts from "../../components/tables/TableProducts";
+import TableCustomers from "../../components/tables/TableCustomers";
 import ButtonBig from "../../components/buttons/button-big";
 
 import { useNavigate } from "react-router-dom";
 
-import ProductService from "../../services/ProductService";
+import CustomerService from "../../services/CustomerService";
 
-function Products() {
+function ClientsMain() {
   const navigate = useNavigate();
 
   let index = 0;
 
-  const [products, setProducts] = useState([]);
+  const [customers, setCustomers] = useState([]);
 
   useEffect(() => {
-    retriveProducts();
+    retriveCustomers();
   }, []);
 
-  const retriveProducts = () => {
-    ProductService.getAll()
+  const retriveCustomers = () => {
+    CustomerService.getAll()
       .then((response) => {
-        setProducts(response.data);
+        setCustomers(response.data);
       })
       .catch((e) => {
         console.log(e);
@@ -31,16 +31,16 @@ function Products() {
   };
 
   const changeState = (e) => {
-    index = e.idProduct;
+    index = e;
   };
 
   const handleDelete = () => {
     if (index === 0) {
-      alert("No se a seleccionado ningun producto");
+      alert("No se a seleccionado ningun cliente");
       return;
     }
 
-    ProductService.remove(index)
+    CustomerService.remove(index)
     .then((response) => {
       alert(response.data);
       index = 0;
@@ -53,15 +53,15 @@ function Products() {
   };
 
   const handleUpdate = () => {
-    console.log(index);
-    if (index === 0 || index === undefined) {
-      alert("No se a seleccionado ningun producto");
+    if (index === 0) {
+      alert("No se a seleccionado ningun cliente");
       return;
     }
-    ProductService.get(index)
+    
+    CustomerService.get(index)
     .then((response) => {
-      const product = response.data;
-      navigate("/productos/actualizar", { replace: true, state:{index, product} });
+      const customer = response.data;
+      navigate("/clientes/actualizar", { replace: true, state:{index, customer} });
     })
     .catch((e) => {
       console.log(e);
@@ -76,10 +76,10 @@ function Products() {
           <div className="col-xl-12 col-lg-7">
             <div className="card shadow mb-4">
               <div className="card-body">
-                <TableProducts
+                <TableCustomers
                   inActive={index}
                   changeState={changeState}
-                  dataset={products}
+                  dataset={customers}
                   show={5}
                 />
               </div>
@@ -88,7 +88,7 @@ function Products() {
         </div>
       </div>
       <div className="col">
-        <ButtonBig icon={faPlus} link="/productos/agregar" />
+        <ButtonBig icon={faPlus} link="/clientes/agregar" />
         <ButtonBig icon={faEdit} action={() => handleUpdate()} />
         <ButtonBig icon={faTrash} action={() => handleDelete()} />
       </div>
@@ -96,4 +96,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default ClientsMain;

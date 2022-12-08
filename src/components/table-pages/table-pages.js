@@ -1,4 +1,3 @@
-import TableSalesScrap from "../scrap/TableSalesScrap";
 import SearchBar from "../search-bar/search-bar";
 
 function TablePage({ data }) {
@@ -9,7 +8,6 @@ function TablePage({ data }) {
         <div className="col-xl-12 col-lg-7">
           <div className="card shadow mb-4">
             <div className="card-body">
-              <TableSalesScrap data={data} />
             </div>
           </div>
         </div>

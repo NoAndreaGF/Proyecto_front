@@ -16,7 +16,6 @@ function Inventory() {
   useEffect(() => {
     retriveIns();
     retriveOuts();
-
   }, []);
 
   useEffect(() => {

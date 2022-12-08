@@ -20,15 +20,18 @@ import SalesAddProduct from "./pages/sales/SalesAddProduct";
 import SalesMain from "./pages/sales/SalesMain";
 import SalesAdd from "./pages/sales/SalesAdd";
 
-import Clients from "./pages/clients/Clients";
-import ClientsMain from "./pages/clients/ClientsMain";
-import ClientsAdd from "./pages/clients/ClientsAdd";
+import Customers from "./pages/customers/Customers";
+import CustomersMain from "./pages/customers/CustomersMain";
+import CustomersAdd from "./pages/customers/CustomersAdd";
+import CustomersUpdate from "./pages/customers/CustomersUpdate";
+
 
 import Products from "./pages/products/Products";
 import ProductsMain from "./pages/products/ProductsMain";
 import ProductsAdd from "./pages/products/ProductsAdd";
 
 import User from "./pages/User";
+import ProductsUpdate from "./pages/products/ProductsUpdate";
 
 function App() {
   return (
@@ -46,27 +49,26 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-
-          <Route element={<Products />}>
-            <Route path="/productos" element={<ProductsMain />} />
-            <Route path="/productos-add" element={<ProductsAdd />} />
-          </Route>
-
           <Route element={<Layout />}>
             <Route path="/index" element={<Dashboard />} />
             <Route element={<Inventory />}>
               <Route path="/inventario" element={<InventoryMain />} />
-              <Route path="/inventario-add" element={<InventoryAdd />} />
+              <Route path="/inventario/agregar" element={<InventoryAdd />} />
             </Route>
             <Route element={<Sales />}>
               <Route path="/ventas" element={<SalesMain />} />
-              <Route path="/ventas-add" element={<SalesAdd />} />
+              <Route path="/ventas/agregar" element={<SalesAdd />} />
             </Route>
-            <Route element={<Clients />}>
-              <Route path="/clientes" element={<ClientsMain />} />
-              <Route path="/clientes-add" element={<ClientsAdd />} />
+            <Route element={<Customers />}>
+              <Route path="/clientes" element={<CustomersMain />} />
+              <Route path="/clientes/agregar" element={<CustomersAdd />} />
+              <Route path="/clientes/actualizar" element={<CustomersUpdate />} />
             </Route>
-
+            <Route element={<Products />}>
+              <Route path="/productos" element={<ProductsMain />} />
+              <Route path="/productos/agregar" element={<ProductsAdd />} />
+              <Route path="/productos/actualizar" element={<ProductsUpdate />} />
+            </Route>
             <Route path="/usuario" element={<User />} />
           </Route>
           <Route element={<RequireAuth />}>

@@ -1,33 +1,30 @@
 import { useState } from "react";
 
-import ProductService from "../../services/ProductService";
+import CustomerService from "../../services/CustomerService";
 
 import ButtonBack from "../../components/buttons/button-back";
-import FormProducts from "../../components/form-products/FormProducts";
+import FormCustomers from "../../components/form-customers/FormCustomers";
 
-function ProductsAdd() {
+function CustomersAdd() {
   const [name, setName] = useState("");
-  const [brand, setBrand] = useState("");
-  const [description, setDescription] = useState("");
-  const [stock, setStock] = useState("");
-  const [price, setPrice] = useState("");
-
+  const [lastName, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
   const [errMsg, setErrMsg] = useState("");
 
   const handle = (index, data) => {
-    ProductService.create(data)
+    CustomerService.create(data)
       .then((response) => {
         if (!response?.data?.errors) {
           if (response.data !== "406") {
             setName("");
-            setBrand("");
-            setDescription("");
-            setStock("");
-            setPrice("");
+            setLastName("");
+            setPhone("");
+            setAddress("");
             setErrMsg("");
             window.location.reload();
           } else if (response.data === "406") {
-            setErrMsg("Producto existente.");
+            setErrMsg("Cliente existente.");
           }
         } else {
           setErrMsg("Registro fallido");
@@ -41,25 +38,24 @@ function ProductsAdd() {
         }
       });
   };
+
   return (
     <div className="container p-0">
       <div className="form-row">
-        <ButtonBack link="/productos" />
+        <ButtonBack link="/clientes" />
       </div>
-
-      <FormProducts
-        title="Crear producto"
+      <FormCustomers
+        title="Agregar cliente"
         button="Registrar"
         handle={handle}
         msg={errMsg}
-        nameProduct={name}
-        brandProduct={brand}
-        descriptionProduct={description}
-        priceProduct={price}
-        stockProduct={stock}
+        nameCustomer={name}
+        lastNameCustomer={lastName}
+        phoneCustomer={phone}
+        addressCustomer={address}
       />
     </div>
   );
 }
 
-export default ProductsAdd;
+export default CustomersAdd;

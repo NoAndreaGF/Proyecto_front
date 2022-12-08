@@ -7,6 +7,7 @@ import {
 import TablePage from "../../components/table-pages/table-pages";
 import ButtonBig from "../../components/buttons/button-big";
 import ButtonBack from "../../components/buttons/button-back";
+import FormInventory from "../../components/form-inventory/FormInventory";
 
 function InventoryMain() {
   return (
@@ -14,6 +15,10 @@ function InventoryMain() {
       <div className="form-row">
         <ButtonBack link="/inventario" />
       </div>
+      <FormInventory
+        title="Agregar a inventario"
+       />
+
       <div className="row-pages col-xl">
         <TablePage />
         <div className="col">

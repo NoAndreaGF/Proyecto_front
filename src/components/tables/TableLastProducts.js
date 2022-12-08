@@ -1,4 +1,4 @@
-function Table({ data }) {
+function TableLastProducts({ dataset, show }) {
   return (
     <div
       className="table-responsive table mt-2"
@@ -10,16 +10,16 @@ function Table({ data }) {
         <thead>
           <tr>
             <th>Nombre</th>
-            <th>Estado</th>
-            <th>Total</th>
+            <th>Precio</th>
+            <th>Stock</th>
           </tr>
         </thead>
-        <tbody>          
-            {data?.slice(0,3).map((sale) => (
-            <tr key={sale.idOrder}>
-              <td>{sale.customer.name}{" "}{sale.customer.lastName}</td>
-              <td>{sale.status}</td>
-              <td>{sale.totalAmount}</td>
+        <tbody>
+          {dataset?.slice(0, show).map((data) => (
+            <tr key={data.idProduct}>
+              <td>{data.name}</td>
+              <td>{data.price}</td>
+              <td>{data.stock}</td>
             </tr>
           ))}
         </tbody>
@@ -28,4 +28,4 @@ function Table({ data }) {
   );
 }
 
-export default Table;
+export default TableLastProducts;

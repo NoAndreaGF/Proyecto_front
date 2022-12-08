@@ -42,5 +42,3 @@ function FormProductsAdd() {
         </div>
     );
 }
-
-export default FormProductsAdd;

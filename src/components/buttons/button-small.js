@@ -1,17 +1,17 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function ButtonSmall({icon,link}) {
-    return (
+function ButtonSmall({ icon}) {
+  return (
+    <div className="col">
+      <div className="row">
         <div className="col">
-            <div className="row">
-                <div className="col" >
-                    <button className="btn btn-date btn-primary" type="button">
-                    <FontAwesomeIcon icon={icon} className="fa-1x text-white" />
-                    </button>
-                </div>
-            </div>
+          <button className="btn btn-date btn-primary" type="button">
+            <FontAwesomeIcon icon={icon} className="fa-1x text-white" />
+          </button>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default ButtonSmall;

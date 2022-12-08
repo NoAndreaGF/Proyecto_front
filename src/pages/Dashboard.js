@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 import Card from "../components/card/Card";
-import InfoPanel from "../components/info-panel/InfoPanel";
-import InfoPanelScrap from "../components/scrap/InfoPanelScrap";
+import InfoPanelSales from "../components/info-panel/InfoPanelSales";
+import InfoPanelProduct from "../components/info-panel/InfoPanelProduct";
 
 import {
   faDollarSign,
@@ -17,20 +17,19 @@ import OutService from "../services/OutService";
 import ProductService from "../services/ProductService";
 
 function Dashboard() {
-
   // Usar moment back-front
   const currentDate = new Date();
   let dateSeconds = Date.parse(currentDate);
 
-  let previusDateSeconds = currentDate.setFullYear(currentDate.getFullYear() - 1);
+  let previusDateSeconds = currentDate.setFullYear(
+    currentDate.getFullYear() - 1
+  );
 
   let totalYear = 0;
   let totalMonth = 0;
 
   let currentMonth = currentDate.getMonth() + 1;
   let previusMonth = currentDate.getMonth();
-
-  let sumInsOuts = 0;
 
   const [sales, setSales] = useState(0);
   const [earnings, setEarnings] = useState([]);
@@ -53,44 +52,44 @@ function Dashboard() {
 
   const retriveOredersSales = () => {
     OrderService.getAll()
-    .then(response => {
-      setSales(response.data.length);
-      setOrders(response.data);
-      setEarnings(response.data);
-    })
-    .catch(e => {
-      console.log(e);
-    });
+      .then((response) => {
+        setSales(response.data.length);
+        setOrders(response.data);
+        setEarnings(response.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   const retriveProducts = () => {
     ProductService.getAll()
-    .then(response => {
-      setProducts(response.data);
-    })
-    .catch(e => {
-      console.log(e);
-    });
+      .then((response) => {
+        setProducts(response.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   const retriveIns = () => {
     InService.getAll()
-    .then(response => {
-      setIns(response.data.length);
-    })
-    .catch(e => {
-      console.log(e);
-    });
+      .then((response) => {
+        setIns(response.data.length);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   const retriveOuts = () => {
     OutService.getAll()
-    .then(response => {
-      setOuts(response.data.length);
-    })
-    .catch(e => {
-      console.log(e);
-    });
+      .then((response) => {
+        setOuts(response.data.length);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   const sumOutsIns = () => {
@@ -99,7 +98,7 @@ function Dashboard() {
 
   // Moment
   const sumMonth = earnings.reduce((current, next) => {
-    let month = new Date(next.orderDate).getMonth();
+    let month = new Date(next.orderDate).getMonth() + 1;
     if (month >= previusMonth && month <= currentMonth) {
       totalMonth = current + +next.totalAmount;
     }
@@ -110,7 +109,7 @@ function Dashboard() {
   const sumYear = earnings.reduce((current, next) => {
     let date = Date.parse(next.orderDate);
     if (date >= previusDateSeconds && date <= dateSeconds) {
-      totalYear = current + + next.totalAmount;
+      totalYear = current + +next.totalAmount;
     }
     return totalYear;
   }, 0);
@@ -149,8 +148,12 @@ function Dashboard() {
         />
       </div>
       <div className="row">
-        <InfoPanelScrap title="Productos agregados recientemente" data={products} />
-        <InfoPanel title="Ultimas ventas" data={orders} />
+        <InfoPanelProduct
+          title="Productos agregados recientemente"
+          data={products}
+          show={3}
+        />
+        <InfoPanelSales title="Ultimas ventas" data={orders} show={3} />
       </div>
     </div>
   );

@@ -40,5 +40,3 @@ function FormProductsUpdate() {
         </div>
     );
 }
-
-export default FormProductsUpdate;
