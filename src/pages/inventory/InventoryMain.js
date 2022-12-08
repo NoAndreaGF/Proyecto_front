@@ -22,7 +22,7 @@ function InventoryMain() {
   const [ins, setIns] = useState([]);
   const [outs, setOuts] = useState([]);
   const [insOuts, setInsOuts] = useState([]);
-  const [search, setSearch] = useState("");
+
 
   useEffect(() => {
     retriveIns();

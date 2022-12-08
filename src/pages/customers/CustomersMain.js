@@ -54,7 +54,7 @@ function ClientsMain() {
 
   const handleSearch = (data) => {
     CustomerService.search(data).then((response) => {
-      if(data != "") {
+      if(data !== "") {
         setCustomers(response.data)
       } else {
         retriveCustomers();

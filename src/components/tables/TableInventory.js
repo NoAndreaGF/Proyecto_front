@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import moment from "moment";
 import useTable from "../../hooks/useTable";
 
 import TableFooter from "./table-footer/TableFooter";
@@ -48,7 +48,7 @@ function TableInventory({ changeState, dataset, show }) {
             >
               <td className="tableCell">{el.idIn ? el.idIn : el.idOut}</td>
               <td className="tableCell">{el.idIn ? "Entrada" : "Salida"}</td>
-              <td className="tableCell">{el.date}</td>
+              <td className="tableCell">{moment(el.date).format('YYYY-MM-DD HH:mm:ss')}</td>
               <td className="tableCell">{el.product.name}</td>
               <td className="tableCell">{el.quantity}</td>
             </tr>

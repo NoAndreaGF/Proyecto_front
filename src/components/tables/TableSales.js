@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import moment from "moment";
 import useTable from "../../hooks/useTable";
 import TableFooter from "./table-footer/TableFooter";
 
@@ -27,8 +27,8 @@ function TableSales({ setActiveOrder, dataset, show }) {
           {slice.map((el) => (
             <tr className="tableRowItems" key={el.idOrder}>
               <td className="tableCell">{el.idOrder}</td>
-              <td className="tableCell">{el.orderDate}</td>
-              <td className="tableCell">{el.deliveryDate}</td>
+              <td className="tableCell">{moment(el.orderDate).format('YYYY-MM-DD HH:mm:ss')}</td>
+              <td className="tableCell">{moment(el.deliveryDate).format('YYYY-MM-DD HH:mm:ss')}</td>
               <td className="tableCell">{el.status}</td>
               <td className="tableCell">{el.totalAmount}</td>
             </tr>

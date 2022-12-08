@@ -28,7 +28,7 @@ function SalesMain() {
 
   const handleSearch = (data) => {
     OrderService.search(data).then((response) => {
-      if(data != "") {
+      if(data !== "") {
         setOrders(response.data)
       } else {
         retriveOredersSales();

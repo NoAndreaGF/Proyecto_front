@@ -71,7 +71,7 @@ function Products() {
 
   const handleSearch = (data) => {
     ProductService.search(data).then((response) => {
-      if(data != "") {
+      if(data !== "") {
         setProducts(response.data)
       } else {
         retriveProducts();
