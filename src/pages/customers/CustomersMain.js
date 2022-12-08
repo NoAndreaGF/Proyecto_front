@@ -91,7 +91,8 @@ function ClientsMain() {
           <SearchBar 
           searchIndex = {search}
           findByIndex = {handleSearch}
-          onChange = {onChange}/>
+          onChange = {onChange}
+          placeholder={"Buscar (Nombre, Apellido, Teléfono, ID)..."}/>
           <div className="col-xl-12 col-lg-7">
             <div className="card shadow mb-4">
               <div className="card-body">

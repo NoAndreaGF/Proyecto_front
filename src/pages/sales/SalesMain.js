@@ -50,6 +50,7 @@ function SalesMain() {
            searchIndex = {search}
            findByIndex = {handleSearch}
            onChange = {onChange}
+           placeholder = {"Buscar (ID, Estatus, Fecha: Ej. YYYY-MM-DD)..."}
           />
           <div className="col-xl-12 col-lg-7">
             <div className="card shadow mb-4">

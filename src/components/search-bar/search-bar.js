@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 
-function SearchBar({searchIndex, onChange, findByIndex }) {
+function SearchBar({searchIndex, onChange, findByIndex, placeholder}) {
   const [search, setSearch] = useState(searchIndex);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function SearchBar({searchIndex, onChange, findByIndex }) {
           id="searchText"
           type="text"
           className="form-control bg-white border-1 small"
-          placeholder="Search for..."
+          placeholder={placeholder}
           aria-label="Search"
           aria-describedby="basic-addon2"
           value={search}
