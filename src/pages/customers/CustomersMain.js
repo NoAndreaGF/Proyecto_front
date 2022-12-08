@@ -15,6 +15,7 @@ function ClientsMain() {
   let index = 0;
 
   const [customers, setCustomers] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     retriveCustomers();
@@ -49,8 +50,23 @@ function ClientsMain() {
     .catch((e) => {
       console.log(e);
     });
-
   };
+
+  const handleSearch = (data) => {
+    CustomerService.search(data).then((response) => {
+      if(data != "") {
+        setCustomers(response.data)
+      } else {
+        retriveCustomers();
+      }
+      setSearch("");
+    });
+  }
+
+  const onChange = (e) => {
+     setSearch(e.target.value)
+  }
+
 
   const handleUpdate = () => {
     if (index === 0) {
@@ -72,7 +88,10 @@ function ClientsMain() {
     <div className="row-pages col-xl">
       <div className="card shadow mb-4 col-xl-9 col-lg-7">
         <div className="card-body">
-          <SearchBar />
+          <SearchBar 
+          searchIndex = {search}
+          findByIndex = {handleSearch}
+          onChange = {onChange}/>
           <div className="col-xl-12 col-lg-7">
             <div className="card shadow mb-4">
               <div className="card-body">

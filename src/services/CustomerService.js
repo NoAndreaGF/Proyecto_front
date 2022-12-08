@@ -20,12 +20,17 @@ const remove = (id) => {
   return http.delete(`/customers/${id}`);
 };
 
+const search = (data) => {
+  return http.get(`/customers/busqueda/${data}`);
+}
+
 const CustomerService = {
   getAll,
   get,
   create,
   update,
   remove,
+  search
 };
 
 export default CustomerService;

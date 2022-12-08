@@ -15,6 +15,7 @@ function Products() {
   let index = 0;
 
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     retriveProducts();
@@ -49,7 +50,6 @@ function Products() {
     .catch((e) => {
       console.log(e);
     });
-
   };
 
   const handleUpdate = () => {
@@ -66,13 +66,32 @@ function Products() {
     .catch((e) => {
       console.log(e);
     });
+
   };
+
+  const handleSearch = (data) => {
+    ProductService.search(data).then((response) => {
+      if(data != "") {
+        setProducts(response.data)
+      } else {
+        retriveProducts();
+      }
+      setSearch("");
+    });
+  }
+
+  const onChange = (e) => {
+     setSearch(e.target.value)
+  }
 
   return (
     <div className="row-pages col-xl">
       <div className="card shadow mb-4 col-xl-9 col-lg-7">
         <div className="card-body">
-          <SearchBar />
+          <SearchBar 
+          searchIndex = {search}
+          findByIndex = {handleSearch}
+          onChange = {onChange}/>
           <div className="col-xl-12 col-lg-7">
             <div className="card shadow mb-4">
               <div className="card-body">

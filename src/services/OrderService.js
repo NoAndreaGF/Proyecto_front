@@ -20,12 +20,17 @@ const remove = (id) => {
   return http.delete(`/orders/${id}`);
 };
 
+const search = (data) => {
+  return http.get(`/orders/busqueda/${data}`);
+}
+
 const OrderService = {
   getAll,
   get,
   create,
   update,
   remove,
+  search
 };
 
 export default OrderService;
